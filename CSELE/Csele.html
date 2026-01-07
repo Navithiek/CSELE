@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CDN Table</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.24.2/bootstrap-table.min.js" integrity="sha512-GS/lQJ1AiKWEDCgf1yKepN4m/xewSX6jEVL06KQU6jdAZb3FprSXR2cdBL7FHmo6t5M2gcspMi8I6DqzfPGVew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h1 style="text-align: center;">CDN Table</h1>
+    <table class="table" style="margin: auto; width: 60%;">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Year</th>
+                <th scope="col">Pantone Value</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+
+    <script>
+        const data = [
+            {
+                "id": 1,
+                "name": "cerulean",
+                "year": 2000,
+                "color": "#98B2D1",
+                "pantone_value": "15-4020"
+            },
+            {
+                "id": 2,
+                "name": "fuchsia rose", 
+                "year": 2001, 
+                "color": "#C74375",
+                "pantone_value": "17-2031"
+            },
+            {
+                "id": 3, 
+                "name": "true red", 
+                "year": 2002, 
+                "color": "#BF1932", 
+                "pantone_value": "19-1664" 
+            },
+            {
+                "id": 4, 
+                "name": "aqua sky",
+                "year": 2003,
+                "color": "#7BC4C4",
+                "pantone_value": "14-4811"
+            },
+            {
+                "id": 5,
+                "name": "chili pepper",
+                "year": 2004, 
+                "color": "#E2583E", 
+                "pantone_value": "17-1456" 
+            },
+            {
+                "id": 6, 
+                "name": "blue turquoise", 
+                "year": 2005,            
+                "color": "#53B0AE",
+                "pantone_value": "15-5217"
+            }
+        ];
+
+        const tableBody = document.getElementById('table-body');
+
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.year}</td>
+                <td>${item.pantone_value}</td>
+            `;
+            row.style.backgroundColor = item.color;
+
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
